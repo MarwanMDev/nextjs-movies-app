@@ -8,7 +8,7 @@ import NavLinks from './NavLinks';
 const Header = () => {
   return (
     <header>
-      <div className="grid grid-cols-3 p-10 items-center">
+      <div className="grid grid-cols-3 p-10 items-center shadow-lg">
         {/* <Bars3Icon className="h-8 w-8 cursor-pointer" /> */}
         <Image src={Image1} alt="Logo" width={100} height={100} />
         {/* <Link href="/" prefetch={false}>
@@ -20,7 +20,7 @@ const Header = () => {
             Movies
           </h1>
         </Link> */}
-        <div className="flex space-x-10">
+        <div className="flex space-x-10 justify-center">
           <Link href="/" prefetch={false}>
             <h4 className="font-bold text-gray-400">Home</h4>
           </Link>
