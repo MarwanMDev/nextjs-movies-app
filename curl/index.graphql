@@ -1,0 +1,32 @@
+type Dates {
+  maximum: Date
+  minimum: Date
+}
+type ResultsEntry {
+  adult: Boolean
+  backdrop_path: String
+  genre_ids: [Int]
+  id: Int
+  original_language: String
+  original_title: String
+  overview: String
+  popularity: Float
+  poster_path: String
+  release_date: Date
+  title: String
+  video: Boolean
+  vote_average: Float
+  vote_count: Int
+}
+type Root {
+  dates: Dates
+  page: Int
+  results: [ResultsEntry]
+  total_pages: Int
+  total_results: Int
+}
+
+type Query {
+  myQuery(api_key: String): Root
+    @rest(endpoint: "https://api.themoviedb.org/3/movie/upcoming")
+}

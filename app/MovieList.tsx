@@ -1,6 +1,8 @@
 import MovieCard from './MovieCard';
 
-const MovieList = () => {
+async function MovieList() {
+  const movies: MoviesResponse = await fetchMovies();
+
   return (
     <section className="mt-10 p-10 flex flex-col space-y-5">
       <div className="flex flex-row justify-between items-center">
@@ -16,6 +18,6 @@ const MovieList = () => {
       </div>
     </section>
   );
-};
+}
 
 export default MovieList;
