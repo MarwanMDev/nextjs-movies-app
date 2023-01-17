@@ -1,7 +1,9 @@
+import fetchMovies from '../utils/fetchMovies';
 import MovieCard from './MovieCard';
 
 async function MovieList() {
   const movies: MoviesResponse = await fetchMovies();
+  console.log(movies);
 
   return (
     <section className="mt-10 p-10 flex flex-col space-y-5">
@@ -12,8 +14,8 @@ async function MovieList() {
         <p className="uppercase text-xs font-bold">see all {'>'}</p>
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5 items-center justify-center">
-        {[1, 2, 3, 4].map(() => (
-          <MovieCard />
+        {[1, 2, 3, 4].map((i) => (
+          <MovieCard key={i} />
         ))}
       </div>
     </section>
