@@ -2,7 +2,7 @@ type Dates {
   maximum: Date
   minimum: Date
 }
-type ResultsEntry {
+type Movie {
   adult: Boolean
   backdrop_path: String
   genre_ids: [Int]
@@ -21,7 +21,7 @@ type ResultsEntry {
 type Root {
   dates: Dates
   page: Int
-  results: [ResultsEntry]
+  results: [Movie]
   total_pages: Int
   total_results: Int
 }

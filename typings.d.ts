@@ -1,7 +1,7 @@
 type Genre = action;
 
 type Movie = {
-  poster_path: string | null;
+  poster_path: string | undefined;
   adult: boolean;
   overview: string;
   release_date: string;
@@ -18,12 +18,14 @@ type Movie = {
 };
 
 type MoviesResponse = {
-  page: number;
-  results: Movie[];
-  dates: {
-    maximum: string;
-    minimum: string;
+  myQuery: {
+    page: number;
+    results: Movie[];
+    dates: {
+      maximum: string;
+      minimum: string;
+    };
+    total_pages: number;
+    total_results: number;
   };
-  total_pages: number;
-  total_results: number;
 };

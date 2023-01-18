@@ -1,10 +1,6 @@
-import fetchMovies from '../utils/fetchMovies';
 import MovieCard from './MovieCard';
 
-async function MovieList() {
-  const movies: MoviesResponse = await fetchMovies();
-  console.log(movies);
-
+const MovieList = () => {
   return (
     <section className="mt-10 p-10 flex flex-col space-y-5">
       <div className="flex flex-row justify-between items-center">
@@ -20,6 +16,6 @@ async function MovieList() {
       </div>
     </section>
   );
-}
+};
 
 export default MovieList;

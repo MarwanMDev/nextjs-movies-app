@@ -2,7 +2,7 @@ import { GraphQLClient, gql } from 'graphql-request';
 
 const fetchMovies = async () => {
   const GET_QUERY = gql`
-    query myQuery($api_key: String) {
+    query myQuery($api_key: String!) {
       myQuery(api_key: $api_key) {
         dates {
           maximum
@@ -32,25 +32,20 @@ const fetchMovies = async () => {
   `;
 
   const client = new GraphQLClient(
-    'https://gbadolite.stepzen.net/api/hardy-stoat/__graphql'
+    'https://gbadolite.stepzen.net/api/hardy-stoat/__graphql',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `ApiKey ${process.env.STEPZEN_API_KEY}`,
+      },
+    }
   );
 
   const variables = {
     api_key: process.env.MOVIE_DB_API_KEY,
   };
 
-  const requestHeaders = {
-    Authorization: `apikey ${process.env.ZTEPZEN_API_KEY}`,
-  };
-
-  const data = await client.request(
-    GET_QUERY,
-    variables,
-    requestHeaders
-  );
-  console.log(data);
-
-  const moviesResponse = await data.json();
+  const moviesResponse = await client.request(GET_QUERY, variables);
 
   return moviesResponse;
 };
