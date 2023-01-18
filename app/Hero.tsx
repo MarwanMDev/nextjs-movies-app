@@ -2,6 +2,7 @@
 
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
+import Link from 'next/link';
 
 type Props = {
   movies: Movie[];
@@ -24,13 +25,24 @@ const Hero = ({ movies }: Props) => {
         {movies.map((movie) => (
           <div
             key={movie.id}
-            className="keen-slider__slide number-slide1 h-[700px] bg-slate-500 shadow-xl rounded-md"
+            className="keen-slider__slide number-slide1 h-[700px] shadow-xl rounded-md"
           >
-            <img
-              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-              alt="poster"
-              className="h-full w-full object-fill rounded-t-lg shadow-md"
-            />
+            <Link
+              href={{
+                pathname: '/movie/',
+                query: {
+                  movie: Object.entries(movie)
+                    .map(([key, value]) => `${key}=${value}`)
+                    .join('&'),
+                },
+              }}
+            >
+              <img
+                src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+                alt="poster"
+                className="h-full w-full object-fill rounded-t-lg shadow-md"
+              />
+            </Link>
           </div>
         ))}
       </div>
