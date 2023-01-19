@@ -1,13 +1,9 @@
 import { GraphQLClient, gql } from 'graphql-request';
 
-const fetchMovies = async (isDynamic?: boolean) => {
+const fetchPopularMovies = async (isDynamic?: boolean) => {
   const GET_QUERY = gql`
-    query myQuery($api_key: String!) {
-      myQuery(api_key: $api_key) {
-        dates {
-          maximum
-          minimum
-        }
+    query MyQuery($api_key: String) {
+      getPopular(api_key: $api_key) {
         page
         results {
           adult
@@ -27,6 +23,10 @@ const fetchMovies = async (isDynamic?: boolean) => {
         }
         total_pages
         total_results
+        dates {
+          maximum
+          minimum
+        }
       }
     }
   `;
@@ -51,9 +51,9 @@ const fetchMovies = async (isDynamic?: boolean) => {
     api_key: process.env.MOVIE_DB_API_KEY,
   };
 
-  const moviesResponse = await client.request(GET_QUERY, variables);
+  const popularMovies = await client.request(GET_QUERY, variables);
 
-  return moviesResponse;
+  return popularMovies;
 };
 
-export default fetchMovies;
+export default fetchPopularMovies;

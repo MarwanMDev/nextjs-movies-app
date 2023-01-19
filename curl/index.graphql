@@ -29,4 +29,7 @@ type Root {
 type Query {
   myQuery(api_key: String): Root
     @rest(endpoint: "https://api.themoviedb.org/3/movie/upcoming")
+
+  getPopular(api_key: String): Root
+    @rest(endpoint: "https://api.themoviedb.org/3/movie/popular")
 }
