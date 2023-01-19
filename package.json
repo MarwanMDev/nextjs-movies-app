@@ -12,6 +12,7 @@
     "graphql-request": "^5.1.0",
     "keen-slider": "^6.8.5",
     "next": "latest",
+    "next-themes": "^0.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

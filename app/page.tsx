@@ -7,7 +7,7 @@ import MovieList from './MovieList';
 async function HomePage() {
   const movieResults: MoviesResponse = await fetchMovies();
   const popularMovies: PopularResponse = await fetchPopularMovies();
-  console.log(popularMovies);
+
   return (
     <div>
       <Hero movies={movieResults.myQuery.results} />
