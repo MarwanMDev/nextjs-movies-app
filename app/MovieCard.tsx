@@ -4,7 +4,7 @@ type Props = {
 
 const MovieCard = ({ movie }: Props) => {
   return (
-    <div className="bg-slate-400 h-72 rounded-lg shadow-lg">
+    <div className="bg-slate-400 h-72 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 ease-out">
       <img
         src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
         alt="poster"

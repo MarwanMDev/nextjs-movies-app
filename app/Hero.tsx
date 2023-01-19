@@ -40,7 +40,7 @@ const Hero = ({ movies }: Props) => {
               <img
                 src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
                 alt="poster"
-                className="h-full w-full object-fill rounded-t-lg shadow-md"
+                className="h-full w-full object-fill rounded-t-lg shadow-md hover:scale-105 transition-all duration-300 ease-out"
               />
             </Link>
           </div>
