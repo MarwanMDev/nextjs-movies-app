@@ -1,26 +1,37 @@
+'use client';
+
 import React from 'react';
 import { Bars3Icon } from '@heroicons/react/24/solid';
-import Image1 from '../public/logo-mdev.png';
+import LightThemeLogo from '../public/light-theme-logo.png';
+import DarkThemeLogo from '../public/dark-theme-logo.png';
 import Image from 'next/image';
 
 import Link from 'next/link';
 import NavLinks from './NavLinks';
 import DarkModeButton from './DarkModeButton';
+import { useTheme } from 'next-themes';
 const Header = () => {
+  const { theme } = useTheme();
+
   return (
     <header>
       <div className="grid grid-cols-3 p-10 items-center shadow-lg">
-        {/* <Bars3Icon className="h-8 w-8 cursor-pointer" /> */}
-        <Image src={Image1} alt="Logo" width={100} height={100} />
-        {/* <Link href="/" prefetch={false}>
-          <h1 className="font-serif text-4xl text-center">
-            The{' '}
-            <span className="underline decoration-6 decoration-[#899195]">
-              MDev
-            </span>{' '}
-            Movies
-          </h1>
-        </Link> */}
+        {theme === 'dark' && (
+          <Image
+            src={DarkThemeLogo}
+            alt="Logo"
+            width={100}
+            height={100}
+          />
+        )}
+        {theme === 'light' && (
+          <Image
+            src={LightThemeLogo}
+            alt="Logo"
+            width={100}
+            height={100}
+          />
+        )}
         <div className="flex space-x-10 justify-center">
           <Link href="/" prefetch={false}>
             <h4 className="font-bold text-gray-400">Home</h4>
